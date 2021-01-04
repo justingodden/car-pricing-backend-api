@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 flask = "*"
+numpy = "==1.19.3"
+pandas = "*"
+tensorflow = "*"
+sklearn = "*"
 
 [dev-packages]
 
