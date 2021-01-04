@@ -8,7 +8,7 @@ flask = "*"
 numpy = "==1.19.3"
 pandas = "*"
 tensorflow = "*"
-sklearn = "*"
+flask-cors = "*"
 
 [dev-packages]
 

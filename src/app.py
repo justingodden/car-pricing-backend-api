@@ -1,9 +1,21 @@
 import json
-from flask import Flask
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from model import predict
+
 
 app = Flask(__name__)
 
-@app.route('/')
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
+
+
+@app.route('/', methods=['POST'])
 def index():
-    return json.dumps(1000)
-app.run()
+    if request.is_json:
+        req = request.get_json()
+        price = str(predict(req))
+        return price
+
+
+app.run(debug=True)
