@@ -13,11 +13,11 @@ def predict(json_obj):
     X = pd.DataFrame(json_obj, index=[0])
     X.columns = cols
 
-    make_tokenizer_file = open(r'.\models\make_tokenizer_file.obj', 'rb')
+    make_tokenizer_file = open('make_tokenizer_file.obj', 'rb')
     make_tokenizer = pickle.load(make_tokenizer_file)
     make_tokenizer_file.close()
 
-    model_tokenizer_file = open(r'.\models\model_tokenizer_file.obj', 'rb')
+    model_tokenizer_file = open('model_tokenizer_file.obj', 'rb')
     model_tokenizer = pickle.load(model_tokenizer_file)
     model_tokenizer_file.close()
 
@@ -45,7 +45,7 @@ def predict(json_obj):
 
     onehot_vars = ['fuel_type', 'transmission', 'drive_type']
 
-    onehot_encoder_file = open(r'.\models\onehot_encoder_file.obj', 'rb')
+    onehot_encoder_file = open('onehot_encoder_file.obj', 'rb')
     onehot_encoder = pickle.load(onehot_encoder_file)
     onehot_encoder_file.close()
 
@@ -56,7 +56,7 @@ def predict(json_obj):
     X = np.expand_dims(X.iloc[0].to_numpy(), axis=1)
     X = np.expand_dims(X, axis=1)
 
-    model = tf.keras.models.load_model('./models/tf_model.h5')
+    model = tf.keras.models.load_model('tf_model.h5')
 
     prediction = model.predict((X[0], X[1], X[2:].T))[0][0][0]
 
