@@ -39,7 +39,7 @@ scipy==1.5.4
 six==1.15.0
 sklearn==0.0
 sqlparse==0.4.1
-tensorboard==2.3.2
+tensorboard==2.3.0
 tensorboard-plugin-wit==1.7.0
 tensorflow-cpu==2.3.2
 tensorflow-estimator==2.3.2
